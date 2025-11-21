@@ -62,7 +62,7 @@ rm.ksat <- PTF_temp2[complete.cases(PTF_temp2[,all.vars(fm.ksat)]),]
 m.ksat <- ranger(fm.ksat, rm.ksat,importance="impurity", num.trees=500, mtry=15, quantreg = TRUE)
 m.ksat
 
-p2 = predict(All_cov,m.ksat, progress='window',type = "quantiles",fun = function(model, ...) predict(model, ...)$predictions)
+p2 = predict(All_cov,m.ksat, progress='window',type = "quantiles",fun = function(model, ...) predict(model, ..., quantiles = c(0.05, 0.95))$predictions)
 
 writeRaster(p2, "D:/multispectral_Landsat8/N_0cm_error_30m1.tif")
 
@@ -91,7 +91,7 @@ rm.ksat <- PTF_temp2[complete.cases(PTF_temp2[,all.vars(fm.ksat)]),]
 m.ksat <- ranger(fm.ksat, rm.ksat,importance="impurity", num.trees=500, mtry=45, quantreg = TRUE)
 m.ksat
 
-p2 = predict(All_cov,m.ksat, progress='window',type = "quantiles",fun = function(model, ...) predict(model, ...)$predictions)
+p2 = predict(All_cov,m.ksat, progress='window',type = "quantiles",fun = function(model, ...) predict(model, ..., quantiles = c(0.05, 0.95))$predictions)
 
 writeRaster(p2, "D:/multispectral_Landsat8/sand_0cm_error_30m.tif")
 
@@ -123,7 +123,7 @@ rm.ksat <- PTF_temp2[complete.cases(PTF_temp2[,all.vars(fm.ksat)]),]
 m.ksat <- ranger(fm.ksat, rm.ksat,importance="impurity", num.trees=500, mtry=45, quantreg = TRUE)
 m.ksat
 
-p2 = predict(All_cov,m.ksat, progress='window',type = "quantiles",fun = function(model, ...) predict(model, ...)$predictions)
+p2 = predict(All_cov,m.ksat, progress='window',type = "quantiles",fun = function(model, ...) predict(model, ..., quantiles = c(0.05, 0.95))$predictions)
 
 writeRaster(p2, "D:/multispectral_Landsat8/clay_0cm_error_30m.tif")
 
@@ -153,7 +153,7 @@ rm.ksat <- PTF_temp2[complete.cases(PTF_temp2[,all.vars(fm.ksat)]),]
 m.ksat <- ranger(fm.ksat, rm.ksat,importance="impurity", num.trees=500, mtry=25, quantreg = TRUE)
 m.ksat
 
-p2 = predict(All_cov,m.ksat, progress='window',type = "quantiles",fun = function(model, ...) predict(model, ...)$predictions)
+p2 = predict(All_cov,m.ksat, progress='window',type = "quantiles",fun = function(model, ...) predict(model, ..., quantiles = c(0.05, 0.95))$predictions)
 
 writeRaster(p2, "D:/multispectral_Landsat8/OC_0cm_error_30m.tif")
 
@@ -184,6 +184,6 @@ rm.ksat <- PTF_temp2[complete.cases(PTF_temp2[,all.vars(fm.ksat)]),]
 m.ksat <- ranger(fm.ksat, rm.ksat,importance="impurity", num.trees=500, mtry=5, quantreg = TRUE)
 m.ksat
 
-p2 = predict(All_cov,m.ksat, progress='window',type = "quantiles",fun = function(model, ...) predict(model, ...)$predictions)
+p2 = predict(All_cov,m.ksat, progress='window',type = "quantiles",fun = function(model, ...) predict(model, ..., quantiles = c(0.05, 0.95))$predictions)
 
 writeRaster(p2, "D:/multispectral_Landsat8/P_0cm_error_30m.tif")
